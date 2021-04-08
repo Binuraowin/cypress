@@ -1,0 +1,22 @@
+{
+  "name": "cypress",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Binuraowin/cypress.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Binuraowin/cypress/issues"
+  },
+  "homepage": "https://github.com/Binuraowin/cypress#readme",
+  "devDependencies": {
+    "cypress": "^7.0.1"
+  }
+}
