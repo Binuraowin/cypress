@@ -26,6 +26,10 @@ describe( 'Empty Test',() =>{
 
         cy.url().should('include','/password-reset')
 
+        cy.url().then(value =>{
+            cy.log('Current URL is:',value)
+        })
+
         cy.go('back')
 
         cy.contains('Register an account').click()
