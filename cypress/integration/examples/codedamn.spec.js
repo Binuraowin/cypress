@@ -9,7 +9,7 @@ describe( 'Empty Test',() =>{
        
     })
 
-    it.only('login page looks good',()=>{
+    it('login page looks good',()=>{
         cy.viewport(1280,720)
         cy.visit('https://codedamn.com')
 
@@ -25,7 +25,7 @@ describe( 'Empty Test',() =>{
         cy.contains('Forgot password?').click()
 
         cy.url().should('include','/password-reset')
-
+        //this can't add await method
         cy.url().then(value =>{
             cy.log('Current URL is:',value)
         })
