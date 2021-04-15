@@ -33,18 +33,40 @@ describe( 'Empty Test',() =>{
         cy.url().should('include','/register')
     })
     
-    it.only('Login work fine', () => {
+    it('Login work fine', () => {
 
 
         cy.contains('Sign In').click()
 
         cy.contains('Unable to authorize').should('not.exist')
 
-        cy.get('[data-testid=username]').type('admin')
-        cy.get('[data-testid=password]').type('admin')
+        cy.get('[data-testid=username]').type('blabs')
+        cy.get('[data-testid=password]').type('80216620Bi')
 
         cy.get('[data-testid=login]').click()
 
-        cy.contains('Unable to authorize').should('exist')
+        // cy.contains('Unable to authorize').should('not.exist')
+
+        cy.contains('My pending courses').should('exist')
     });
+
+    it.only('playground', () => {
+        cy.contains('Sign In').click()
+
+        cy.contains('Unable to authorize').should('not.exist')
+
+        cy.get('[data-testid=username]').type('blabs')
+        cy.get('[data-testid=password]').type('80216620Bi')
+
+        cy.get('[data-testid=login]').click()
+
+        // cy.contains('Unable to authorize').should('not.exist')
+
+        cy.contains('Playgrounds').click()
+       
+        cy.get('div')
+        cy.debug()
+        
+    });
+
 })
