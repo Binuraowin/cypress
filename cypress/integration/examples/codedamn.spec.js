@@ -1,25 +1,21 @@
 /// <reference types="cypress" />
 
 describe( 'Empty Test',() =>{
-    it('test one', () => {
-        
+
+    beforeEach(() =>{
         cy.visit('https://codedamn.com')
         cy.viewport(1280,720)
-       
-       
     })
+  
 
     it('login page looks good',()=>{
-        cy.viewport(1280,720)
-        cy.visit('https://codedamn.com')
+
 
         cy.contains('Sign In').click()
         cy.contains('Login with your credentials').should('exist')
     })
 
     it('login page links',()=>{
-        cy.viewport(1280,720)
-        cy.visit('https://codedamn.com')
 
         cy.contains('Sign In').click()
         cy.contains('Forgot password?').click()
@@ -38,8 +34,7 @@ describe( 'Empty Test',() =>{
     })
     
     it.only('Login work fine', () => {
-        cy.viewport(1280,720)
-        cy.visit('https://codedamn.com')
+
 
         cy.contains('Sign In').click()
 
