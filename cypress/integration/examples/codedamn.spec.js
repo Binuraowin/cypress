@@ -17,7 +17,7 @@ describe( 'Empty Test',() =>{
         cy.contains('Login with your credentials').should('exist')
     })
 
-    it.only('login page links',()=>{
+    it('login page links',()=>{
         cy.viewport(1280,720)
         cy.visit('https://codedamn.com')
 
@@ -36,4 +36,16 @@ describe( 'Empty Test',() =>{
         cy.contains('Register an account').click()
         cy.url().should('include','/register')
     })
+    
+    it.only('Login work fine', () => {
+        cy.viewport(1280,720)
+        cy.visit('https://codedamn.com')
+
+        cy.contains('Sign In').click()
+
+        cy.get('[data-testid=username]').type('admin')
+        cy.get('[data-testid=password]').type('admin')
+
+        cy.get('[data-testid=login]').click()
+    });
 })
