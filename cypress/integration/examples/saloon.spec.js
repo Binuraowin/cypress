@@ -5,7 +5,7 @@
 describe( 'Empty Test',() =>{
   it('test one', () => {
       
-      cy.visit('http://localhost:3000/')
+      cy.visit('http://localhost:3000/appointment')
 
       cy.contains('Appointment').click()
 
