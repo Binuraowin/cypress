@@ -73,7 +73,7 @@ describe( 'Empty Test',() =>{
     });
 
 
-    it.only('playground', () => {
+    it('playground', () => {
         cy.contains('Sign In').click()
 
         cy.contains('Unable to authorize').should('not.exist')
@@ -96,6 +96,43 @@ describe( 'Empty Test',() =>{
         cy.get('.xterm-helper-textarea',{timeout:10*1000}).type('{ctrl}{c}').type('touch test.js{enter}')
 
         cy.contains('test.js').should('exist')
+        
+    });
+
+
+    it.only('playground', () => {
+        cy.contains('Sign In').click()
+
+        cy.contains('Unable to authorize').should('not.exist')
+
+        cy.get('[data-testid=username]').type('blabs')
+        cy.get('[data-testid=password]').type('80216620Bi')
+
+        cy.get('[data-testid=login]').click()
+
+        // cy.contains('Unable to authorize').should('not.exist')
+
+        cy.contains('Unable to authorize',{timeout: 1*1000}).should('not.exist')
+
+        cy.contains('Playgrounds').click()
+
+        cy.contains('Raw HTML playground',{timeout:4*1000}).click()
+
+        cy.contains('Setting up the challenge',{timeout:100*1000}).should('not.exist')
+        
+        cy.get('.xterm-helper-textarea',{timeout:20*1000}).type('{ctrl}{c}').type('touch test.js{enter}')
+
+        cy.contains('test.js').should('exist')
+
+        cy.contains('test.js').rightclick()
+        
+        cy.contains('Rename File').click()
+
+        cy.get('[data-testid=renamefilefolder]').type('newfile.js')
+
+        cy.get('[data-testid=renamebtn]').click()
+
+        cy.contains('newfile.js').should('exist')
         
     });
 
