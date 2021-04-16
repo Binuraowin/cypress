@@ -63,6 +63,7 @@ describe( 'Empty Test',() =>{
         // cy.contains('Unable to authorize').should('not.exist')
 
         cy.contains('Playgrounds').click()
+        
        
         cy.get('div')
         cy.debug()
