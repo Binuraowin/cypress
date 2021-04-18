@@ -2,31 +2,28 @@
 
 
 
-describe( 'Empty Test',() =>{
+describe('Empty Test', () => {
 
-  beforeEach(() =>{
+  beforeEach(() => {
     cy.visit('http://localhost:3000/appointment')
-    cy.viewport(1280,720)
-})
+    cy.viewport(1280, 720)
+  })
   it('test one', () => {
-     
-      cy.get('.appointment').click()
 
-      
-      cy.get('.appointment').should('exist')
-      //cy.get('.makeappointment').click()
+    cy.get('.appointment').click()
 
+    cy.get('.appointment').should('exist')
 
+    cy.url().should('include', 'appointment')
 
-      cy.url().should('include','appointment')
-
-      cy.contains('Make an Appointment').should('exist')
+    cy.contains('Make an Appointment').should('exist')
 
   });
 
   it('description', () => {
 
     cy.visit('http://localhost:3000/appointment')
+    
     cy.get('.description').type('description')
 
     cy.get('.email').type('email@email.com')
