@@ -3,13 +3,20 @@
 
 
 describe( 'Empty Test',() =>{
+
+  beforeEach(() =>{
+    cy.visit('http://localhost:3000')
+    cy.viewport(1280,720)
+})
   it.only('test one', () => {
-      
-      cy.visit('http://localhost:3000',{timeout: 5*1000})
+     
+      // cy.get('.appointment').click()
 
-      cy.get('.appointment',{timeout: 4*1000}).click()
+      cy.get('.appointment').should('exist')
 
-      cy.url().should('include','/appointment')
+      cy.get('.appointment').click()
+
+      cy.url().should('include','appointment')
 
       // cy.contains('Make an Appointment').should('exist')
 
