@@ -10,15 +10,17 @@ describe( 'Empty Test',() =>{
 })
   it.only('test one', () => {
      
-      // cy.get('.appointment').click()
+      cy.get('.appointment').click()
 
+      
       cy.get('.appointment').should('exist')
 
-      cy.get('.appointment').click()
+      cy.contains('Book now').click()
+
 
       cy.url().should('include','appointment')
 
-      // cy.contains('Make an Appointment').should('exist')
+      cy.contains('Make an Appointment').should('exist')
 
   });
 
