@@ -8,20 +8,19 @@ describe( 'Empty Test',() =>{
     cy.visit('http://localhost:3000/appointment')
     cy.viewport(1280,720)
 })
-  it.only('test one', () => {
+  it('test one', () => {
      
-      // cy.get('.appointment').click()
+      cy.get('.appointment').click()
 
       
-      // cy.get('.appointment').should('exist')
-      cy.get('.makeappointment').click()
-
-      // cy.contains('Book now').click()
+      cy.get('.appointment').should('exist')
+      //cy.get('.makeappointment').click()
 
 
-      // cy.url().should('include','appointment')
 
-      // cy.contains('Make an Appointment').should('exist')
+      cy.url().should('include','appointment')
+
+      cy.contains('Make an Appointment').should('exist')
 
   });
 
