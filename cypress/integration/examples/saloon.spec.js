@@ -23,7 +23,7 @@ describe('Empty Test', () => {
   it('description', () => {
 
     cy.visit('http://localhost:3000/appointment')
-    
+
     cy.get('.description').type('description')
 
     cy.get('.email').type('email@email.com')
@@ -37,5 +37,25 @@ describe('Empty Test', () => {
     cy.get('.makeappointment').click()
 
     // cy.contains('Please fill out this field.').should('exist')
+  });
+
+
+  it('description', () => {
+
+    cy.visit('http://localhost:3000/appointment')
+    
+    cy.get('.description').type('description')
+
+    cy.get('.email').type('email@email.com')
+
+    cy.get('.name').type('binura owin')
+
+    // cy.get('.date').type('2021-04-16')
+
+    // cy.get('.phone').type('0452288529')
+
+    cy.get('.makeappointment').click()
+
+    cy.contains('Please fill').should('exist')
   });
 })
